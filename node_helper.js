@@ -7,6 +7,9 @@ module.exports = NodeHelper.create({
 	start: function() {
 		this.dialServer.mmSendSocket = (n,p) => this.sendSocketNotification(n,p);
 	},
+	stop: function() {
+		this.dialServer.stopCast();
+	},
 	socketNotificationReceived: function(notification, payload) {
 		switch (notification) {
 			case 'SET_CONFIG':
